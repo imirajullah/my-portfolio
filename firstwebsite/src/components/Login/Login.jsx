@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import './login.css';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    alert(`Logged in as ${email}`);
+    // You can add real authentication here
+    onLogin();
   };
 
   const handleGoogleLogin = () => {
-    // Handle Google login logic here
-    alert('Login with Google clicked');
+    // You can add Google login logic here
+    onLogin();
   };
 
   return (
