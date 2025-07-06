@@ -1,0 +1,13 @@
+.settings-page {
+  padding: 40px;
+  background-color: #f2f2f2;
+  min-height: 80vh;
+}
+
+.settings-page h2 {
+  color: #222;
+}
+
+.settings-page p {
+  font-size: 16px;
+}

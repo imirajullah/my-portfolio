@@ -1,0 +1,13 @@
+.logout-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+
+.logout-page h2 {
+  color: #333;
+  font-size: 24px;
+}

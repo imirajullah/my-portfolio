@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // You can add real authentication here
-    onLogin();
+    // Fake login: You can add validation logic here
+    localStorage.setItem('loggedIn', 'true');
+    navigate('/dashboard'); // redirect after login
   };
 
   const handleGoogleLogin = () => {
-    // You can add Google login logic here
-    onLogin();
+    localStorage.setItem('loggedIn', 'true');
+    navigate('/dashboard');
   };
 
   return (

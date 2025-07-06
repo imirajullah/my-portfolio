@@ -9,14 +9,19 @@ const Myfile = () => {
       style={{
         backgroundImage: `url(${bgImage})`,
       }}
+      
     >
       <div className="hero-overlay">
         <h1>Hello, I'm Miraj</h1>
         <p>I'm a web developer and designer. Welcome to my portfolio!</p>
-        <button className="hero-btn">View My Work</button>
+      <a href="#projects" className="hero-btn">View My Work</a>
+
       </div>
     </div>
   );
 };
+<a href="#projects" className="myfile-button">View My Work</a>
+
+
 
 export default Myfile;

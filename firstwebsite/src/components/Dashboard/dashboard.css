@@ -17,3 +17,6 @@
 .dashboard-headers h2:hover {
   color: #4fc3f7;
 }
+html {
+  scroll-behavior: smooth;
+}
