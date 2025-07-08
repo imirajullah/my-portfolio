@@ -1,6 +1,8 @@
 import React from 'react';
 import './myfile.css';
-import bgImage from '../../img/miraj.png';
+import bgImage from '../../img/miraj.jpg';
+
+
 
 const Myfile = () => {
   return (
