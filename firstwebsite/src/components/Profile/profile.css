@@ -1,16 +1,16 @@
 .profile-page {
   padding: 40px;
-  background-color: #f9f9f9;
+  background-color: #0c0c0c;
   min-height: 80vh;
 }
 
 .profile-page h2 {
-  color: #333;
+  color: #faf5f5;
   margin-bottom: 20px;
 }
 
 .profile-info p {
   font-size: 16px;
   margin: 10px 0;
-  color: #424242;
+  color: #f5f3f3;
 }

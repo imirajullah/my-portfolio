@@ -12,6 +12,8 @@ const Profile = () => {
         <p><strong>Phone:</strong> 0302-5726233</p>
         <p><strong>Location:</strong> Samar Bagh, Dir Lower, Pakistan</p>
         <p><strong>Role:</strong> Junior Web Developer</p>
+        <p><strong>Education:</strong> BS Software engineering (Riphah International University)</p>
+        <p><strong>semester</strong> 5th and <strong>CGPA</strong> is 3.87</p>
       </div>
     </div>
   );
