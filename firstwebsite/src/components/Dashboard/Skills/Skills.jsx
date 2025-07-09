@@ -8,7 +8,7 @@ const Skills = () => {
       <ul>
         <li>HTML, CSS, JavaScript</li>
         <li>React.js, Node.js</li>
-        <li>MongoDB, SQL</li>
+        <li>MongoDB, Express.js, SQL</li>
         <li>Git & GitHub</li>
         <li>Problem Solving, Debugging</li>
       </ul>

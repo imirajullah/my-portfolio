@@ -13,6 +13,12 @@ const Myfile = () => {
       }}
       
     >
+        <div className="hero-overlay" data-aos="fade-up">
+  <h1>Hello, I'm Miraj</h1>
+  <p>I'm a web developer and designer. Welcome to my portfolio!</p>
+  <a href="#projects" className="hero-btn">View My Work</a>
+</div>
+
       <div className="hero-overlay">
         <h1>Hello, I'm Miraj</h1>
         <p>I'm a web developer and designer. Welcome to my portfolio!</p>

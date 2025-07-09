@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -7,35 +7,51 @@ import Settings from './components/Settings/Settings';
 import Logout from './components/Logout/Logout';
 import Login from './components/Login/Login';
 
-const isAuthenticated = () => {
-  return localStorage.getItem('loggedIn') === 'true';
-};
-
 const Main = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem('loggedIn') === 'true'
+  );
+
+  // Check localStorage if changed elsewhere (optional)
+  useEffect(() => {
+    const handleStorage = () => {
+      setIsAuthenticated(localStorage.getItem('loggedIn') === 'true');
+    };
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, []);
+
+  const handleLogin = () => {
+    localStorage.setItem('loggedIn', 'true');
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('loggedIn');
+    setIsAuthenticated(false);
+  };
+
   return (
     <Router>
-      {isAuthenticated() && <Navbar />}
+      {/* ✅ Show Navbar only if authenticated */}
+      {isAuthenticated && <Navbar />}
 
       <Routes>
-        {/* Login route is public */}
-        <Route path="/login" element={<Login />} />
+        {/* Public Route */}
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
 
-        {/* Protected routes */}
-        {isAuthenticated() ? (
+        {/* Protected Routes */}
+        {isAuthenticated ? (
           <>
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/logout" element={<Logout />} />
+            <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
           </>
         ) : (
-          // If not logged in, redirect all other routes to login
-          <Route path="/login" element={<Login onLogin={() => {
-  localStorage.setItem('loggedIn', 'true');
-  return <Navigate to="/dashboard" />;
-}} />} />
-
+          // Redirect all other routes to login if not logged in
+          <Route path="*" element={<Navigate to="/login" />} />
         )}
       </Routes>
     </Router>

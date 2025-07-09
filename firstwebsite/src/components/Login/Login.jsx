@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Fake login: You can add validation logic here
     localStorage.setItem('loggedIn', 'true');
-    navigate('/dashboard'); // redirect after login
+    onLogin(); // ✅ Notify Main to update state
+    navigate('/dashboard');
   };
 
   const handleGoogleLogin = () => {
     localStorage.setItem('loggedIn', 'true');
+    onLogin();
     navigate('/dashboard');
   };
 

@@ -1,35 +1,30 @@
 .navbar {
-  display: flex;
-  align-items: center;
-  background-color: #222;
+  background-color: #1f1f1f;
   padding: 10px 20px;
 }
 
 .navbar-menu {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.navbar-item {
-  margin-right: 20px;
+.navbar-left,
+.navbar-right {
+  display: flex;
+  gap: 20px;
 }
 
 .navbar-item a {
-  color: #fff;
   text-decoration: none;
+  color: white;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .navbar-item a:hover {
-  color: #ffcc00;
-}
-
-/* ✅ Push logout to the far right */
-.logout {
-  margin-left: auto;
+  color: #00bcd4;
 }

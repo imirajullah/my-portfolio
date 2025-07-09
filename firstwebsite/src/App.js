@@ -1,25 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar/Navbar.jsx';
-import Login from './components/Login/Login.jsx';
-import Dashboard from './components/Dashboard/Dashboard.jsx';
+import Main from './Main'; // ✅ Only import Main which controls routing
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // This function will be passed to Login and called on successful login
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
-
   return (
-    <div>
-      <Navbar />
-      {isLoggedIn ? (
-        <Dashboard />
-      ) : (
-        <Login onLogin={handleLogin} />
-      )}
+    <div >
+      <Main /> {/* ✅ Navbar will be conditionally shown from here */}
     </div>
   );
 }
