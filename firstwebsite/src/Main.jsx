@@ -8,40 +8,50 @@ import Logout from './components/Logout/Logout';
 import Login from './components/Login/Login';
 
 const Main = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    localStorage.getItem('loggedIn') === 'true'
-  );
+  const [isAuth, setIsAuth] = useState(localStorage.getItem('loggedIn') === 'true');
+  const [darkMode, setDarkMode] = useState(false);
 
-  // Check localStorage if changed elsewhere (optional)
   useEffect(() => {
-    const handleStorage = () => {
-      setIsAuthenticated(localStorage.getItem('loggedIn') === 'true');
-    };
-    window.addEventListener('storage', handleStorage);
-    return () => window.removeEventListener('storage', handleStorage);
-  }, []);
+    document.body.classList.toggle('dark-theme', darkMode);
+  }, [darkMode]);
 
   const handleLogin = () => {
     localStorage.setItem('loggedIn', 'true');
-    setIsAuthenticated(true);
+    setIsAuth(true);
   };
 
   const handleLogout = () => {
     localStorage.removeItem('loggedIn');
-    setIsAuthenticated(false);
+    setIsAuth(false);
   };
 
   return (
     <Router>
-      {/* ✅ Show Navbar only if authenticated */}
-      {isAuthenticated && <Navbar />}
+      {isAuth && <Navbar />}
+
+      {/* Dark Mode Toggle */}
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        style={{
+          position: 'fixed',
+          top: '10px',
+          right: isAuth ? '110px' : '10px',
+          zIndex: 9999,
+          backgroundColor: 'var(--button-bg)',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          padding: '8px 12px',
+          cursor: 'pointer',
+        }}
+      >
+        {darkMode ? 'Light Mode' : 'Dark Mode'}
+      </button>
 
       <Routes>
-        {/* Public Route */}
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        <Route path="/login" element={!isAuth ? <Login onLogin={handleLogin} /> : <Navigate to="/dashboard" />} />
 
-        {/* Protected Routes */}
-        {isAuthenticated ? (
+        {isAuth ? (
           <>
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -50,7 +60,6 @@ const Main = () => {
             <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
           </>
         ) : (
-          // Redirect all other routes to login if not logged in
           <Route path="*" element={<Navigate to="/login" />} />
         )}
       </Routes>
@@ -59,4 +68,3 @@ const Main = () => {
 };
 
 export default Main;
-

@@ -1,22 +1,26 @@
-/* Add to d:\react\firstwebsite\src\components\Dashboard\dashboard.css */
+.dashboard-container {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem;
+}
+
 .dashboard-headers {
   display: flex;
-  gap: 2rem;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
-.dashboard-headers h2 {
-  font-size: 1.3rem;
-  color: #222;
-  margin: 0;
-  cursor: pointer;
-  transition: color 0.2s;
+.dashboard-headers h2 a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.dashboard-headers h2:hover {
-  color: #4fc3f7;
+.dashboard-headers h2 a:hover {
+  color: #00bcd4;
 }
-html {
-  scroll-behavior: smooth;
+.dashboard-headers {
+  margin-top: 0.5rem;  /* reduce space below navbar */
 }
+

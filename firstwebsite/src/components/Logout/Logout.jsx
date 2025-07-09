@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './logout.css';
+import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const Logout = ({ onLogout }) => {
-  const navigate = useNavigate();
-
   useEffect(() => {
     localStorage.removeItem('loggedIn');
-    if (onLogout) onLogout(); // ✅ Notify Main to update state
-    navigate('/login');
-  }, [navigate, onLogout]);
+    if (onLogout) onLogout();
+  }, [onLogout]);
 
-  return <h2>Logging out...</h2>;
+  return <Navigate to="/login" replace />;
 };
 
 export default Logout;
-

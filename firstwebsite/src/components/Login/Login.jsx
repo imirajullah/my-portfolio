@@ -10,13 +10,13 @@ const Login = ({ onLogin }) => {
   const handleLogin = (e) => {
     e.preventDefault();
     localStorage.setItem('loggedIn', 'true');
-    onLogin(); // ✅ Notify Main to update state
-    navigate('/dashboard');
+    if (onLogin) onLogin(); // ✅ Notify Main
+    navigate('/dashboard'); // ✅ Go to dashboard
   };
 
   const handleGoogleLogin = () => {
     localStorage.setItem('loggedIn', 'true');
-    onLogin();
+    if (onLogin) onLogin(); // ✅ Same flow
     navigate('/dashboard');
   };
 
@@ -38,8 +38,14 @@ const Login = ({ onLogin }) => {
           onChange={e => setPassword(e.target.value)}
           required
         />
+        
+        {/* Normal Login Button */}
         <button type="submit">Login</button>
+        
+        {/* Divider */}
         <div className="login-divider">or</div>
+        
+        {/* Google Login */}
         <button type="button" className="google-login" onClick={handleGoogleLogin}>
           Login with Google
         </button>
@@ -49,3 +55,4 @@ const Login = ({ onLogin }) => {
 };
 
 export default Login;
+

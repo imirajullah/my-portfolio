@@ -2,8 +2,6 @@ import React from 'react';
 import './myfile.css';
 import bgImage from '../../img/miraj.jpg';
 
-
-
 const Myfile = () => {
   return (
     <div
@@ -11,25 +9,14 @@ const Myfile = () => {
       style={{
         backgroundImage: `url(${bgImage})`,
       }}
-      
     >
-        <div className="hero-overlay" data-aos="fade-up">
-  <h1>Hello, I'm Miraj</h1>
-  <p>I'm a web developer and designer. Welcome to my portfolio!</p>
-  <a href="#projects" className="hero-btn">View My Work</a>
-</div>
-
-      <div className="hero-overlay">
+      <div className="hero-overlay" data-aos="fade-up">
         <h1>Hello, I'm Miraj</h1>
         <p>I'm a web developer and designer. Welcome to my portfolio!</p>
-      <a href="#projects" className="hero-btn">View My Work</a>
-
+        <a href="#projects" className="hero-btn">View My Work</a>
       </div>
     </div>
   );
 };
-<a href="#projects" className="myfile-button">View My Work</a>
-
-
 
 export default Myfile;

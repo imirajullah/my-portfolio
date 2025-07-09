@@ -3,11 +3,10 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  filter: brightness(1.15); /* Brighten the image */
 }
 
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.3); /* less dark */
+  background-color: rgba(0, 0, 0, 0.4);
   height: 100%;
   width: 100%;
   position: absolute;
@@ -18,12 +17,12 @@
   justify-content: center;
   align-items: flex-start;
   padding-left: 5rem;
-  color: white;
+  color: var(--text-color);
   text-shadow: 1px 1px 4px black;
 }
 
 .hero-btn {
-  background-color: #00bcd4;
+  background-color: var(--button-bg);
   padding: 12px 24px;
   border: none;
   border-radius: 4px;
